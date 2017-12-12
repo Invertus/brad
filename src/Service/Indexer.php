@@ -171,6 +171,7 @@ class Indexer
 
             $products = new PrestaShopCollection('Product');
             $products->where('id_product', 'in', $bulkProductIds);
+            $products->sqlWhere('a1.id_shop = '.$idShop);
 
             switch ($indexingType) {
                 case self::INDEX_PRICES:
